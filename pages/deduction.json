@@ -1,0 +1,517 @@
+{
+  "name": "deduction",
+  "type": "page",
+  "url": "/deduction",
+  "params": {},
+  "variables": [
+    {
+      "name": "payrollApi",
+      "type": "open-api",
+      "id": "660dfe51f871b7b8ec68d76b"
+    },
+    {
+      "name": "getAllDeduction",
+      "type": "method",
+      "description": "fetches the deductions in the API",
+      "body": "$ctrl.payrollApi.employee_services_payslipItems_GetAllDeductions({\n    ngrokSkipBrowserWarning: \"n/a\"\n}).then(result => {\n    $ctrl.allDeduction = result.data.deductions\n    $ctrl.showSpinner = false\n})",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "allDeduction",
+      "type": "array",
+      "description": "Stores the value of the deduction from getAllDeduction",
+      "children": []
+    },
+    {
+      "name": "showSpinner",
+      "type": "property",
+      "description": "Hides and shows the spinner component",
+      "value": "true"
+    },
+    {
+      "name": "createDeduction",
+      "type": "method",
+      "description": "method to create deduction",
+      "body": "$ctrl.$modal.open(\"create-deduction\").then( (result) =>{\n    if (result.result === \"ok\") {\n        $ctrl.payrollApi.employee_services_payslipItems_CreateDeduction(\n            {\n                ngrokSkipBrowserWarning: 'n/a'\n            },\n            {\n            \"deductionName\": \"string\",\n            \"type\": \"string\",\n            \"amount\":1,\n            \"employerTax\": true,\n            }\n        ).then(result => {\n            console.log(result.data)\n        })\n    }}\n)\n\n\n\n",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "$modal",
+      "type": "service"
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "app-container"
+      ],
+      "conditionalClasses": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "navigation",
+          "nodeName": "navigation",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [],
+          "comments": "",
+          "type": "custom-component",
+          "id": "6628b7c695ff897e7860ffcf",
+          "expressions": []
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "width",
+              "value": "90%",
+              "enabled": true
+            },
+            {
+              "property": "margin",
+              "value": "0 auto",
+              "enabled": true
+            }
+          ],
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "eHeader"
+              ],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "margin-top",
+                  "value": "20px",
+                  "enabled": true
+                },
+                {
+                  "property": "height",
+                  "value": "5%",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "div",
+                  "nodeName": "div",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "padding",
+                      "value": "0",
+                      "enabled": true
+                    },
+                    {
+                      "property": "margin",
+                      "value": "0",
+                      "enabled": true
+                    },
+                    {
+                      "property": "height",
+                      "value": "50px",
+                      "enabled": true
+                    },
+                    {
+                      "property": "display",
+                      "value": "flex",
+                      "enabled": true
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "font-weight",
+                          "value": "bold",
+                          "enabled": true
+                        },
+                        {
+                          "property": "color",
+                          "value": "#2B7A78",
+                          "enabled": true
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "20px",
+                          "enabled": true
+                        }
+                      ],
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Deduction",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "span",
+                      "nodeName": "span",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "Button",
+                          "nodeName": "bln-button",
+                          "elementId": "",
+                          "attributes": [
+                            {
+                              "property": "core",
+                              "value": ""
+                            }
+                          ],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "--bln-button-default-bg-color",
+                              "value": "#3aafa9",
+                              "enabled": true
+                            },
+                            {
+                              "property": "--bln-button-default-hovered-bg-color",
+                              "value": "#2e8c87",
+                              "enabled": true
+                            },
+                            {
+                              "property": "--bln-button-default-active-bg-color",
+                              "value": "#297b76",
+                              "enabled": true
+                            },
+                            {
+                              "property": "--bln-button-default-text-color",
+                              "value": "#ffffff",
+                              "enabled": true
+                            },
+                            {
+                              "property": "--bln-button-default-hovered-text-color",
+                              "value": "#ffffff",
+                              "enabled": true
+                            },
+                            {
+                              "property": "--bln-button-default-active-text-color",
+                              "value": "#ffffff",
+                              "enabled": true
+                            }
+                          ],
+                          "children": [],
+                          "comments": "",
+                          "type": "core-component",
+                          "id": "button",
+                          "expressions": [
+                            {
+                              "expression": "\"Create deduction\"",
+                              "to": "label"
+                            },
+                            {
+                              "expression": "$ctrl.createDeduction()",
+                              "to": "onClick"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    }
+                  ],
+                  "comments": ""
+                },
+                {
+                  "name": "hr",
+                  "nodeName": "hr",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": ""
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "table-container"
+              ],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "margin",
+                  "value": "20px",
+                  "enabled": true
+                },
+                {
+                  "property": "padding-bottom",
+                  "value": "50px",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "Table",
+                  "nodeName": "bln-table",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "core",
+                      "value": ""
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "--bln-table-height",
+                      "value": "100%",
+                      "enabled": true
+                    },
+                    {
+                      "property": "--bln-table-header-bg-color",
+                      "value": "#DEF2F1",
+                      "enabled": true
+                    },
+                    {
+                      "property": "--bln-table-bg-color",
+                      "value": "#ffffff",
+                      "enabled": true
+                    },
+                    {
+                      "property": "--bln-table-hovered-bg-color",
+                      "value": "#cccccc",
+                      "enabled": true
+                    },
+                    {
+                      "property": "--bln-table-secondary-bg-color",
+                      "value": "#ffffff",
+                      "enabled": true
+                    }
+                  ],
+                  "children": [],
+                  "comments": "",
+                  "type": "core-component",
+                  "id": "table",
+                  "expressions": [
+                    {
+                      "expression": "[{\n        name: \"Deduction name\",\n        valueKey: 'deductionName',\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        formatter: '',\n        cellTooltip: ''\n    },\n    {\n        name: \"Deduction type\",\n        valueKey: 'deductionType',\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        formatter: '',\n        cellTooltip: ''\n    },\n    {\n        name: \"Amount\",\n        valueKey: 'amount',\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        formatter: '',\n        cellTooltip: ''\n    },\n    {\n        name: \"Employer tax\",\n        valueKey: 'employerTax',\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        formatter: '',\n        cellTooltip: ''\n    }\n]",
+                      "to": "columns"
+                    },
+                    {
+                      "expression": "$ctrl.allDeduction",
+                      "to": "data"
+                    },
+                    {
+                      "expression": "true",
+                      "to": "enableRowSelection"
+                    },
+                    {
+                      "expression": "$ctrl.$state.go(\"payslips\", {id: row.payrollId})\n ",
+                      "to": "onSelection"
+                    }
+                  ]
+                },
+                {
+                  "name": "Pagination",
+                  "nodeName": "bln-pagination",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "core",
+                      "value": ""
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "type": "core-component",
+                  "id": "pagination",
+                  "expressions": []
+                },
+                {
+                  "name": "Spinner",
+                  "nodeName": "bln-spinner",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "core",
+                      "value": ""
+                    }
+                  ],
+                  "classList": [
+                    "spinner"
+                  ],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "$ctrl.showSpinner",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "type": "core-component",
+                  "id": "spinner",
+                  "expressions": []
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ]
+}

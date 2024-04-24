@@ -1,0 +1,23 @@
+{
+  "name": "payroll-system2",
+  "type": "app",
+  "defaultPage": "payroll",
+  "config": {
+    "config": {
+      "parameters": [],
+      "script": ""
+    },
+    "modules": [],
+    "properties": {
+      "version": "1.0.0-SNAPSHOT"
+    },
+    "environments": [],
+    "themes": [],
+    "auth": {
+      "enabled": false,
+      "mockedUserAccounts": []
+    }
+  },
+  "externalScripts": [],
+  "externalStylesheets": []
+}
